@@ -72,6 +72,13 @@ class Customer
     return result[0]
   end
 
+  # def buy_ticket(film_id)
+  #   sql = 'UPDATE customers SET (funds) = (film_id.price)
+  #    WHERE id = $1'
+  #   values = [@id, @funds]
+  #   result = SqlRunner.run(sql, "buy_ticket", values)
+  #   return "Ticket bought. You balance is now #{@funds}"
+  # end
 
 
 end

@@ -64,5 +64,13 @@ class Film
     return "Update successful."
   end
 
+  def count_customers()
+    sql = "SELECT COUNT(*) FROM tickets WHERE
+    film_id = $1;"
+    values = [@id]
+    result = SqlRunner.run(sql, "count_customers", values)
+    return result[0]
+  end
+
 
 end
