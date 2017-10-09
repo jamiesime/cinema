@@ -65,11 +65,11 @@ class Customer
   end
 
   def count_tickets()
-    sql = "SELECT tickets COUNT FROM tickets WHERE
-    customer_id = $1"
+    sql = "SELECT COUNT(*) FROM tickets WHERE
+    customer_id = $1;"
     values = [@id]
     result = SqlRunner.run(sql, "count_tickets", values)
-    return result[0].length
+    return result[0]
   end
 
 
