@@ -62,10 +62,10 @@ class Ticket
     return "Update successful."
   end
 
-  def self.new_ticket(customer_id, film_id)
+  def self.new_ticket(customer_id, screening)
     new_ticket = Ticket.new({
       'customer_id' => customer_id,
-      'film_id' => film_id
+      'film_id' => screening.film
       })
     new_ticket.save
   end

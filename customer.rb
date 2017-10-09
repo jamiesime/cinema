@@ -73,10 +73,13 @@ class Customer
     return result[0]
   end
 
-  def buy_ticket(film)
+  def buy_ticket(film, screening)
+    puts screening.tickets_sold
     if @funds > film.price
-      @funds -= film.price
-      update()
+      if (screening.tickets_sold <= 100)
+        @funds -= film.price
+        update()
+      end
     else
       return "Not enough money to buy a ticket."
     end
