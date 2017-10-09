@@ -10,13 +10,13 @@ Film.delete_all() if (Film)
 
 customer1 = Customer.new({
   'name' => 'Roberto',
-  'funds' => '50'
+  'funds' => 50
   })
 customer1.save()
 
 customer2 = Customer.new({
   'name' => 'Caroline',
-  'funds' => '100'
+  'funds' => 100
   })
 customer2.save()
 
@@ -49,6 +49,8 @@ booking3 = Ticket.new({
   'film_id' => film2.id()
   })
 booking3.save()
+
+customer1.buy_ticket(film2)
 
 binding.pry
 nil

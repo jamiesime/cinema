@@ -1,5 +1,6 @@
 require_relative 'sql_runner.rb'
 require_relative 'ticket.rb'
+require_relative 'film.rb'
 
 class Customer
 
@@ -72,13 +73,15 @@ class Customer
     return result[0]
   end
 
-  # def buy_ticket(film_id)
-  #   sql = 'UPDATE customers SET (funds) = (film_id.price)
-  #    WHERE id = $1'
-  #   values = [@id, @funds]
-  #   result = SqlRunner.run(sql, "buy_ticket", values)
-  #   return "Ticket bought. You balance is now #{@funds}"
-  # end
+  def buy_ticket(film)
+    if @funds > film.price
+      @funds -= film.price
+      update()
+    else
+      return "Not enough money to buy a ticket."
+    end
+    return "Ticket bought. You balance is now #{@funds}"
+  end
 
 
 end
